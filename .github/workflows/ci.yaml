@@ -41,6 +41,8 @@ jobs:
       with:
         go-version: '1.22'
       id: go
+    - name: Install migrate
+      run: curl -L https://github.com/golang-migrate/migrate/releases/download/$version/migrate.$os-$arch.tar.gz | tar xvz
     - name: Migration
       run: make migrate-up
     - name: Build
